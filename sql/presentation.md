@@ -52,4 +52,17 @@ CREATE TABLE table_name (column_name data_type, ...);
 CREATE VIEW view_name AS SELECT ... FROM table_name;
 CREATE INDEX index_name ON table_name (column_name);
 ```
+
+## Schema Commands - DROP
+
+Used to delete a database, table, view or index
+
+```sql
+DROP DATABASE database_name;
+DROP TABLE table_name;
+DROP VIEW view_name;
+DROP INDEX index_name;
+```
+
+NOTE: This command is destructive and cannot be undone
 ```

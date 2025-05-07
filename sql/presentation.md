@@ -6,6 +6,29 @@ Structured Query Language
 
 SQL (Structured Query Language) is a computer programming language used to manage data stored in a database, which store structured data in tables. Its syntax is easy to read, so it's easy to pick up on even if you're a non-technical user
 
+## Types of SQL Objects
+
+- Database
+
+- Table: Used to store data in structured format
+    - Column
+    - Row
+
+- Views: Virtual tables that provides a customized view of data from one or more tables
+
+- Index: Used to optimize the performance of queries
+
+- Constraint: Ensuer data integrity
+
+```markdown
+The following are other types out of scope of this presentation
+
+- Stored Procedures: Used to automate specific tasks
+
+- Trigger: Special type of stored procedure that automatically execute in response to specific event on a table
+
+```
+
 ## Types of SQL Commands
 
 - Schema related commands

@@ -65,4 +65,14 @@ DROP INDEX index_name;
 ```
 
 NOTE: This command is destructive and cannot be undone
+
+## Schema Commands - ALTER
+
+Used to modify an existing database, table or view
+
+```sql
+ALTER DATABASE database_name;
+ALTER TABLE table_name ADD column_name data_type;
+ALTER TABLE table_name DROP column_name;
+ALTER VIEW view_name AS SELECT ... FROM table_name;
 ```

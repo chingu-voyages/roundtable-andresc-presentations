@@ -100,3 +100,5 @@ Used to delete data from a table
 ```sql
 DELETE FROM table_name WHERE condition;
 ```
+
+NOTE: This command is destructive and cannot be undone

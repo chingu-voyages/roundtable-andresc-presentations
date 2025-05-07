@@ -44,10 +44,12 @@ The following are other types out of scope of this presentation
 
 ## Schema Commands - CREATE
 
-Used to create a new database, table or view
+Used to create a new database, table, views or index
 
 ```sql
 CREATE DATABASE database_name;
 CREATE TABLE table_name (column_name data_type, ...);
 CREATE VIEW view_name AS SELECT ... FROM table_name;
+CREATE INDEX index_name ON table_name (column_name);
+```
 ```

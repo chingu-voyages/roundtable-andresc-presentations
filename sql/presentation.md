@@ -41,3 +41,13 @@ The following are other types out of scope of this presentation
     - SELECT (Read)
     - UPDATE (Update)
     - DELETE (Delete)
+
+## Schema Commands - CREATE
+
+Used to create a new database, table or view
+
+```sql
+CREATE DATABASE database_name;
+CREATE TABLE table_name (column_name data_type, ...);
+CREATE VIEW view_name AS SELECT ... FROM table_name;
+```

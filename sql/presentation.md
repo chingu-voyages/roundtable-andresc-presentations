@@ -92,3 +92,11 @@ Used to update data in a table
 ```sql
 UPDATE table_name SET column_name = value WHERE condition;
 ```
+
+## Data Manipulation Commands - DELETE
+
+Used to delete data from a table
+
+```sql
+DELETE FROM table_name WHERE condition;
+```

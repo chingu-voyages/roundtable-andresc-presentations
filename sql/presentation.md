@@ -76,3 +76,11 @@ ALTER TABLE table_name ADD column_name data_type;
 ALTER TABLE table_name DROP column_name;
 ALTER VIEW view_name AS SELECT ... FROM table_name;
 ```
+
+## Data Manipulation Commands - INSERT
+
+Used to insert data into a table
+
+```sql
+INSERT INTO table_name (column_name, ...) VALUES (value, ...);
+```

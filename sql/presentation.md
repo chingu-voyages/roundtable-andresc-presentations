@@ -84,3 +84,11 @@ Used to insert data into a table
 ```sql
 INSERT INTO table_name (column_name, ...) VALUES (value, ...);
 ```
+
+## Data Manipulation Commands - UPDATE
+
+Used to update data in a table
+
+```sql
+UPDATE table_name SET column_name = value WHERE condition;
+```

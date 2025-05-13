@@ -76,7 +76,6 @@ Used to modify an existing database, table or view
 ALTER DATABASE database_name;
 ALTER TABLE table_name ADD column_name data_type;
 ALTER TABLE table_name DROP column_name;
-ALTER VIEW view_name AS SELECT ... FROM table_name;
 ```
 
 ## Data Manipulation Commands - INSERT
@@ -149,15 +148,25 @@ CREATE TABLE account (
 we can find out the total in all the accounts
 
 ```sql
-SELECT SUM(ammount) FROM accout;
+SELECT COUNT(client) FROM client;
 ```
 
-or we can find the total in a specific country
+or we can find the total clients in a specific country
 
 ```sql
-SELECT client.country_id, SUM(account.ammount)
-FROM account
-JOIN client on account.client_id = client.id
-GROUP BY client.country_id;
+SELECT country.name, COUNT(client.name)
+FROM client
+JOIN country on country.id = client.country_id;
+```
+
+## Data Manipulation Commands - SELECT
+
+Lets see if we can show also those countries where we don't have any clients
+
+```sql
+SELECT country.name, COUNT(client.name)
+FROM client
+RIGHT OUTER JOIN country on country.id = client.country_id;
+GROUP BY country.name
 ```
 

@@ -53,6 +53,8 @@ CREATE VIEW view_name AS SELECT ... FROM table_name;
 CREATE INDEX index_name ON table_name (column_name);
 ```
 
+NOTE: [PostgreSQL Data Types](https://www.postgresql.org/docs/current/datatype.html) referece
+
 ## Schema Commands - DROP
 
 Used to delete a database, table, view or index

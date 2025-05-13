@@ -104,3 +104,60 @@ DELETE FROM table_name WHERE condition;
 ```
 
 NOTE: This command is destructive and cannot be undone
+
+## Data Manipulation Commands - SELECT
+
+Used to query data from a table, in its most simple form:
+
+```sql
+SELET column_name, ... FROM table_name [ WHERE condition ORDER BY sorting ]
+```
+
+Note: both `WHERE` and `ORDER BY` are optional keywords 
+
+## Data Manipulation Commands - SELECT
+
+With select you can also aggregate values, for example in a database with the following schema:
+
+```sql
+CREATE TABLE country (
+    id char(2) PRIMARY KEY,
+    name VARCHAR(255),
+
+    unique (name)
+);
+
+CREATE TABLE client (
+    id uuid PRIMARY KEY default gen_random_uuid(),
+    name VARCHAR(255) NOT NULL,
+    surname VARCHAR(255) NOT NULL,
+    country_id CHAR(2) NOT NULL REFERENCES country on delete restrict
+);
+
+CREATE TABLE account (
+    id SERIAL PRIMARY KEY,
+    number VARCHAR(255) NOT NULL,
+    client_id uuid NOT NULL REFERENCES client (id) on delete restrict,
+    ammount DECIMAL(15,6),
+
+    unique (number)
+);
+```
+
+## Data Manipulation Commands - SELECT
+
+we can find out the total in all the accounts
+
+```sql
+SELECT SUM(ammount) FROM accout;
+```
+
+or we can find the total in a specific country
+
+```sql
+SELECT client.country_id, SUM(account.ammount)
+FROM account
+JOIN client on account.client_id = client.id
+GROUP BY client.country_id;
+```
+

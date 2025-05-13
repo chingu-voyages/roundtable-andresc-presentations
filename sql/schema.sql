@@ -21,6 +21,8 @@ CREATE TABLE account (
   unique (number)
 );
 
+ALTER TABLE client ADD CONSTRAINT client_name_surname_unique UNIQUE (name, surname);
+
 INSERT INTO country (id, name) VALUES
   ('US', 'UNITED STATES'),
   ('EC', 'ECUADOR'),

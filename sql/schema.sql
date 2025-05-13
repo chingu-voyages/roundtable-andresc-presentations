@@ -20,3 +20,16 @@ CREATE TABLE account (
 
   unique (number)
 );
+
+INSERT INTO country (id, name) VALUES
+  ('US', 'UNITED STATES'),
+  ('EC', 'ECUADOR'),
+  ('CL', 'CHILE'),
+  ('DE', 'GERMANY'),
+  ('ES', 'SPAIN'),
+  ('AU', 'AUSTRALIA'),
+  ('GB', 'UNITED KINGDOM');
+
+INSERT INTO client (name, surname, country_id) VALUES
+  ('Jim', 'Medlock', 'US'),
+  ('Andres', 'Court', 'EC');

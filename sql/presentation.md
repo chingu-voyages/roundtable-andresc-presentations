@@ -169,3 +169,16 @@ RIGHT OUTER JOIN country on country.id = client.country_id;
 GROUP BY country.name
 ```
 
+## Data Manipulation Commands - Transactions
+
+In a RDBMS there is the concept of transactions where `INSERT`, `UPDATE` and `DELETE` commands are ***not executed*** until it is commited, giving you the ability to reset the data if necessary
+
+```sql
+BEGIN
+
+INSERT INTO table_name (column_name, ...) VALUES (value, ...);
+UPDATE table_name SET column_name = value WHERE condition;
+DELETE FROM table_name WHERE condition;
+
+COMMIT
+ROLLBACK ```

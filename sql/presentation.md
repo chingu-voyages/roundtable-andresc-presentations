@@ -136,7 +136,7 @@ NOTE: This command is destructive and cannot be undone
 Used to query data from a table, in its most simple form:
 
 ```sql
-SELET column_name, ... FROM table_name [ WHERE condition ORDER BY sorting ]
+SELECT column_name, ... FROM table_name [ WHERE condition ORDER BY sorting ]
 ```
 
 Note: both `WHERE` and `ORDER BY` are optional keywords 

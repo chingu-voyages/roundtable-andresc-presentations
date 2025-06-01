@@ -41,6 +41,16 @@ This is known as dotfiles, and you can also save them to a git repository, in Li
 ln -s /path/to/config ~/.config
 ```
 
+## Yazi
+
+Yazi is a tool that allows you to browse your filesm
+
+- [yazi](https://github.com/sxyazi/yazi)
+
+```bash
+yazi
+```
+
 ## Moving around
 
 To move through different directories you can use the `cd` command, however you can also use the *Better CD* tool

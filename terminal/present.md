@@ -87,3 +87,54 @@ this is a tmux session manager that uses zoxide and fzf to work
 ```bash
 sesh
 ```
+
+## tldr
+
+tldr is a tool that allows you to get the summary of a command, it is a good tool to use when you have a lot of commands to remember
+
+- [tldr](https://github.com/tldr-pages/tldr)
+
+```bash
+tldr
+```
+
+## lazygit
+
+lazygit is a tool that gives you an interface to git, it is a good tool to use when you have a lot of git commands to remember
+
+- [lazygit](https://github.com/jesseduffield/lazygit)
+
+```bash
+lazygit
+```
+
+## grep and rg
+
+grep is a tool that allows you to search for a pattern in a file, it is a good tool to use when you have a lot of files to search through
+
+- [grep](https://www.gnu.org/software/grep/)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+
+```bash
+rg
+```
+
+## neovim
+
+neovim is a text editor that its confguration is written in lua, it is a good tool to use when you want to edit code
+
+- [neovim](https://neovim.io/)
+
+```bash
+nvim
+```
+
+## the fuck
+
+the fuck is a tool that allows you to fix your command, it is a good tool to use when you have a lot of typos in your command
+
+- [the fuck](https://github.com/nvbn/thefuck)
+
+```bash
+thefuck
+```d

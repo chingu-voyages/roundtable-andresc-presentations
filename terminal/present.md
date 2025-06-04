@@ -140,6 +140,12 @@ grep is a tool that allows you to search for a pattern in a file, it is a good t
 rg
 ```
 
+if you want to search only in your git repository you can use:
+
+```bash
+git grep
+```
+
 ## neovim
 
 neovim is a text editor that its confguration is written in lua, it is a good tool to use when you want to edit code

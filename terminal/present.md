@@ -51,6 +51,17 @@ Yazi is a tool that allows you to browse your filesm
 yazi
 ```
 
+## bat
+
+bat is a tool that allows you to view the contents of a file, it is a good tool to use when you have a lot of files to view
+
+- [bat](https://github.com/sharkdp/bat)
+
+```bash
+bat /path/to/file
+```
+
+
 ## Moving around
 
 To move through different directories you can use the `cd` command, however you can also use the *Better CD* tool

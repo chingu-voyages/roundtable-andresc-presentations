@@ -334,3 +334,9 @@ Primary key is `Person + Brand`
 | Alice  | Mint Chocolate Chip |
 
 Primary key is `Person + Flavor`
+
+## Resources
+
+- [Wikipedia](https://en.wikipedia.org/wiki/Database_normalization)
+- [Decomplexify - Learn database normalization](https://www.youtube.com/watch?v=GFQaEYEc8_8)
+- [Decomplexify - Learn Boyce-Codd Normal Form BCNF](https://youtu.be/VWnKUKH4tLg?si=rAxELutX476G0eTW)

@@ -16,7 +16,7 @@ Usually one normalizes up to the 3NF.
 
 ## 1NF
 
-**First Normal Form** is the foundation level of database normalization.
+**Definitions** 
 
 - Using row order to convey information is not permitted. Eg. Table with The Beatles order by height
 - Mixing data types within the same column is not permitted.
@@ -68,6 +68,7 @@ Primary key is `player_id + item`
 
 **Definitions**
 
+- Every table should be in 1NF
 - Each non-key attribute must depend on the entire primary key
 
 ### Solution
@@ -110,7 +111,8 @@ We could update the skill level of a player and not the rating causing data insc
 
 **Definitions**
 
-- Each non-key attribute must depend on the key, and nothing but the key
+- Every table should be in 2NF
+- Every non-key attribute in a table should depend on a key, the whole key and nothing but the key
 
 ### Solution
 
@@ -136,3 +138,145 @@ Primary key is `player_id`
 |     9       | Advanced      |
 
 Primary key is `skill_level`
+
+## BCNF
+
+Boyce-Codd Normal Form
+
+**Definitions**
+
+- Every table should be in 3NF
+- Every attribute in a table should depend on a key, the whole key and nothing but the key
+
+This is to rare to find, couldn't think of a real world example
+
+## Important
+
+After having the database normalized to `BCNF` the database is usually considered `normalized`, but there are scenarios where is important to be more specific
+
+## 4NF
+      
+Design my Birdhouse
+
+| Model   | Avalable colors | Available styles       |
+|---------|-----------------|------------------------|
+| Tweety  | Yellow, Blue    | Bungalow, Duplex       |
+| Metro   | Brown, Grey     | High-Rise, Modular     |
+| Prairie | Brwon, Beige    | Bungalow, Schoolhousse |
+
+The table should be
+
+| Model   | Avalable colors | Available styles       |
+|---------|-----------------|------------------------|
+| Tweety  | Yellow          | Bungalow               |
+| Tweety  | Blue            | Bungalow               |
+| Tweety  | Yellow          | Duplex                 |
+| Tweety  | Blue            | Duplex                 |
+| Metro   | Brown           | High-Rise              |
+| Metro   | Grey            | High-Rise              |
+| Metro   | Brown           | Modular                |
+| Metro   | Grey            | Modular                |
+| Prairie | Brown           | Bungalow               |
+| Prairie | Beige           | Bungalow               |
+| Prairie | Brown           | Schoolhousse           |
+| Prairie | Beige           | Schoolhousse           |
+
+Primary key is `Model + Avalable colors + Available styles`
+
+What if we add a color to ther Prairie house we can cause an insertion inconsistency
+
+**Definitions**
+
+- Every table should be en BCNF
+- Multivalued dependencies in a table must be multivalued dependeincies on the key
+
+### Solution
+
+| Model   | colors |
+|---------|--------|
+| Tweety  | Yellow |
+| Tweety  | Blue   |
+| Metro   | Brown  |
+| Metro   | Grey   |
+| Prairie | Brown  |
+| Prairie | Beige  |
+
+Primary key is `Model` 
+
+| colors  | styles      |
+|---------|-------------|
+| Tweety  | Bungalow    |
+| Tweety  | Duplex      |
+| Metro   | High-Rise   |
+| Metro   | Modular     |
+| Prairie | Bungalow    |
+| Prairie | Schoolhouse |
+
+Primary key is `Model` 
+
+## 5NF
+
+| Brand     | Flavors Offered                                     |
+|-----------|-----------------------------------------------------|
+| Frosty's  | Vanilla, Chocolate, Strawberry, Mint Chocolate Chip |
+| Alpine    | Vanilla, Rum Raisin                                 |
+| Ice Queen | Vanilla, Strawberry, Mint Chocolate Chip            |
+
+| Person    | Kind of ice creem likes                                                                           |
+|-----------|---------------------------------------------------------------------------------------------------|
+| Bob       | Only like vanilla and chocolate and only the brands Frosty's and Alpine                           |
+| Alice     | Only like rum raisin, mint chocolate chip and strawberry and only the brands Alpine and Ice Queen |
+
+Table representation
+
+| Person | Brand     | Flavor              |
+|--------|-----------|---------------------|             
+| Bob    | Frosty's  | Vanilla             |
+| Bob    | Frosty's  | Chocolate           |
+| Bob    | Alpine    | Vanilla             |
+| Alice  | Alpine    | Rum Raisin          |
+| Alice  | Ice Queen | Strawberry          |
+| Alice  | Ice Queen | Mint Chocolate Chip |
+
+Primary key is `Person + Brand + Flavor`
+
+Problem what if Alice likes Frosty's now
+
+**Definitions**
+
+- Every table should be in 4NF
+- The table cannot be describable as the logical result of joining some other tables together
+
+### Solution
+
+| Brand     | Flavor              |
+|-----------|---------------------|
+| Frosty's  | Vanilla             |
+| Frosty's  | Strawberry          |
+| Frosty's  | Mint Chocolate Chip |
+| Alpine    | Vanilla             |
+| Alpine    | Rum Raisin          |
+| Ice Queen | Vainilla            |
+| Ice Queen | Strawberry          |
+| Ice Queen | Mint Chocolate Chip |
+
+Primary key is `Brand + Flavor`
+
+| Person | Brand     |
+|--------|-----------|
+| Bob    | Frosty's  |
+| Bob    | Alpine    |
+| Alice  | Alpine    |
+| Alice  | Ice Queen |
+
+Primary key is `Person + Brand`
+
+| Person | Flavor              |
+|--------|---------------------|
+| Bob    | Vanilla             |
+| Bob    | Chocolate           |
+| Alice  | Rum Raisin          |
+| Alice  | Strawberry          |
+| Alice  | Mint Chocolate Chip |
+
+Primary key is `Person + Flavor`

@@ -71,6 +71,27 @@ Primary key is `player_id + item`
 - Every table should be in 1NF
 - Each non-key attribute must depend on the entire primary key
 
+### Candidate keys
+
+| Locker_id | Reservation_start_date | Reservation_end_date | Reservation_end_day |
+|-----------|------------------------|----------------------|---------------------|
+| 123       | 2025-06-14             | 2025-07-19           | Saturday            |
+| 356       | 2025-06-14             | 2025-06-19           | Thursday            |
+| 567       | 2025-07-08             | 2025-08-30           | Wednesday           |
+
+Possible keys are `Locker_id + Reservation_start_date` or `Locker_id + Reservation_end_date`
+
+Reservation_end_day depends only on part of a possible key so that makes this table not to comply with 2NF
+
+A more formal defintion:
+
+- We can not have a non prime attribute that depends on a part of a candidate key
+
+**Candidate key** is an attribute (or a combination of attributes) that is used to uniquely identify a row
+**Prime attributes** is an attribute that belongs at least to one candidate key
+**Non prime attributes** is an attribute that does not belong to any candidate key
+
+
 ### Solution
 
 | player_id  | item         | quantity | 
@@ -114,6 +135,11 @@ We could update the skill level of a player and not the rating causing data insc
 - Every table should be in 2NF
 - Every non-key attribute in a table should depend on a key, the whole key and nothing but the key
 
+A more formal defintion:
+
+- Each non prime attribute in a table should depend on every candidate key, it should never depend on part of a candiadate key and it should never
+  depend on other non prime attributes
+
 ### Solution
 
 | player_id  | skill_level |
@@ -143,12 +169,40 @@ Primary key is `skill_level`
 
 Boyce-Codd Normal Form
 
+| Release_year | Popularity_Ranking | Movie_title                   | Release_year_and_month |
+|--------------|--------------------|-------------------------------|------------------------|
+| 2008         |   1                | The Dark Knight               |  2008-07               |
+| 2008         |   2                | WALL-E                        |  2008-06               |
+| 2008         |   3                | Iron Man                      |  2008-05               |
+| 2009         |   1                | UP                            |  2009-05               |
+| 2009         |   2                | Inglorious Basterds           |  2009-08               |
+| 2009         |   3                | Zombieland                    |  2009-10               |
+
+Candidate keys `Movie_title` or `Release_year + Popularity_Ranking` or `Release_year_and_month + Popularity_Ranking`
+
+Even though we don't have any non prime attributes, the table is still on 3NF, we still have some dependencies like `Release_year` depends on `Release_year_and_month`
+
 **Definitions**
 
 - Every table should be in 3NF
-- Every attribute in a table should depend on a key, the whole key and nothing but the key
+- Every attrribute in a table should be dependent on the key, the whole key and nothing but the key
 
-This is to rare to find, couldn't think of a real world example
+A more formal defintion:
+
+- With the exception of trivial functional dependencies, every functional dependency in a table must be a dependency on a candidate key (or in a superset of a candiadate key)
+
+### Solution
+
+- Change Release_year_and_month for releases month
+
+| Release_year | Popularity_Ranking | Movie_title                   | Release_year_and_month |
+|--------------|--------------------|-------------------------------|------------------------|
+| 2008         |   1                | The Dark Knight               |  July                  |
+| 2008         |   2                | WALL-E                        |  June                  |
+| 2008         |   3                | Iron Man                      |  May                   |
+| 2009         |   1                | UP                            |  May                   |
+| 2009         |   2                | Inglorious Basterds           |  August                |
+| 2009         |   3                | Zombieland                    |  October               |
 
 ## Important
 

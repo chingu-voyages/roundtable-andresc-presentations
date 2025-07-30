@@ -25,14 +25,14 @@ Usually one normalizes up to the 3NF.
 
 ### Example 0NF
 
-| player_id  | iteem                                    | quantity        | 
+| player_id  | item                                     | quantity        | 
 |------------|------------------------------------------|-----------------|
 | jdog21     | [ amulets, rings]                        | [ 2, 4]         |
 | gilal9     | [ copper coins ]                         | [ 18 ]          |
 | trev73     | [ shields, arrows, copper coins, rings ] | [ 3, 5, 30, 7 ] |
 
 
-### Example 1NF
+### Solution
 
 | player_id  | item         | quantity |
 |------------|--------------|----------|
@@ -70,6 +70,8 @@ Primary key is `player_id + item`
 
 - Each non-key attribute must depend on the entire primary key
 
+### Solution
+
 | player_id  | item         | quantity | 
 |------------|--------------|----------|
 | jdog21     | amulets      |      2   | 
@@ -85,36 +87,52 @@ Primary key is `player_id + item`
 | player_id  | Player_rating |
 |------------|---------------|
 | jdog21     | Intermediate  |
-| jdog21     | Intermediate  |
-| gilal9     | Beginner      |
+| gila19     | Beginner      |
+| trev73     | Advanced      |
+| tina42     | Beginner      |
 
 Primary key is `player_id`
 
 ## 3NF
 
-**Third Normal Form** is a step up from the second normal form.
+lets add a `skill level` to our table
 
-- Each table is in 2NF.
-- No transitive dependency between non-key attributes.
-- No non-key attributes that are not fully dependant on the primary key.
+| player_id  | Player_rating | skill_level |
+|------------|---------------|-------------|
+| jdog21     | Intermediate  |     5       |
+| gila19     | Beginner      |     3       |
+| trev73     | Advanced      |     7       |
+| tina42     | Beginner      |     1       |
 
-### Example 3NF
+Primary key is `player_id`
 
-|               Customer Table          |
-|---------------------------------------|
-| id | first name | last name | email   |
-|----|------------|-----------|---------|
-| 1  | John       | Smith     | jsmith  |
-| 2  | Alex       | Doe       | adoe    |
-| 3  | Maria      | Doe       | mdoe    |
+We could update the skill level of a player and not the rating causing data insconsistency
 
-|               Transaction Table                                       |
-|-----------------------------------------------------------------------|
-| id | customer_id | transaction_date | transaction_amount | product    |
-|----|-------------|------------------|--------------------|------------|
-| 1  | 1           | 2022-01-01       | 100.00             | Apple      |
-| 2  | 1           | 2022-01-02       | 200.00             | Banana     |
-| 3  | 1           | 2022-01-02       | 200.00             | Orange     |
-| 4  | 2           | 2022-01-15       | 150.00             | Aple       |
-| 5  | 3           | 2022-02-02       | 783.00             | Banana     |
+**Definitions**
 
+- Each non-key attribute must depend on the key, and nothing but the key
+
+### Solution
+
+| player_id  | skill_level |
+|------------|-------------|
+| jdog21     |     5       |
+| gila19     |     3       |
+| trev73     |     7       |
+| tina42     |     1       |
+
+Primary key is `player_id`
+
+| skill_level | Player_rating |
+|-------------|---------------|
+|     1       | Beginner      |
+|     2       | Beginner      |
+|     3       | Beginner      |
+|     4       | Intermediate  |
+|     5       | Intermediate  |
+|     6       | Intermediate  |
+|     7       | Advanced      |
+|     8       | Advanced      |
+|     9       | Advanced      |
+
+Primary key is `skill_level`

@@ -18,54 +18,57 @@ Usually one normalizes up to the 3NF.
 
 **First Normal Form** is the foundation level of database normalization.
 
-- Atomicity: Each attribute (column) contains only a single, indivisible value. For example, a "phone number" column should store only one phone number per row, not a list of numbers
-- No Repeating Groups: There are no sets of columns that are repeated within a row. For instance, instead of having columns like "child1", "child2", "child3" to store children's names,
-  you would create a separate table to store child information, linked to the main table with a foreign key
-- Unique Column Names: Each column in the table must have a distinct name. 
-- No Order Dependency: The order of rows or columns within the table should not be significant.
-- Consistent Data Types: All values within a single column should be of the same data type.
-- Primary Key: Each table must have a primary key that uniquely identifies each row.
+- Using row order to convey information is not permitted. Eg. Table with The Beatles order by height
+- Mixing data types within the same column is not permitted.
+- Having a table without a primary key is not permitted.
+- Repeating groups are not permitted.
 
 ### Example 0NF
 
-| name  | transaction_date | transaction_amount | product    |
-|-------|------------------|--------------------|------------|
-| John  | [ 2022-01-01,    | [ 100.00,          | [ Apple ,  |
-|       |   2022-01-02,    |   200.00,          |   Banana,  |
-|       |   2022-01-02 ]   |   200.00 ]         |   Orange ] |
-| Alex  | [ 2022-01-15 ]   | [ 150.00 ]         | [ Aple ]   |
-| Maria | [ 2022-02-02 ]   | [ 783.00 ]         | [ Banana ] |
+| player_id  | iteem                                    | quantity        | 
+|------------|------------------------------------------|-----------------|
+| jdog21     | [ amulets, rings]                        | [ 2, 4]         |
+| gilal9     | [ copper coins ]                         | [ 18 ]          |
+| trev73     | [ shields, arrows, copper coins, rings ] | [ 3, 5, 30, 7 ] |
 
-In this example we can see that the data is not in the first normal form. 
-
-There is no primary key window, the data is not consistent, and the data is not unique.
 
 ### Example 1NF
 
-| id | name  | transaction_date | transaction_amount | product    |
-|----|-------|------------------|--------------------|------------|
-| 1  | John  | 2022-01-01       | 100.00             | Apple      |
-| 2  | John  | 2022-01-02       | 200.00             | Banana     |
-| 3  | John  | 2022-01-02       | 200.00             | Orange     |
-| 4  | Alex  | 2022-01-15       | 150.00             | Aple       |
-| 5  | Maria | 2022-02-02       | 783.00             | Banana     |
+| player_id  | item         | quantity |
+|------------|--------------|----------|
+| jdog21     | amulets      |      2   |
+| jdog21     | rings        |      4   |
+| gilal9     | copper coins |     18   |
+| trev73     | shilelds     |      3   |
+| trev73     | arrows       |      5   |
+| trev73     | copper coins |     30   |
+| trev73     | rings        |      7   |
+
+Primary key is `player_id + item`
 
 ## 2NF
 
-**Second Normal Form** is a step up from the first normal form.
+lets say we add a player rating to our table
 
-- Each table is in 1NF. This is important, you can not have tables in 2NF that are not in 1NF.
-- All non-key attributes are fully dependant on the primary key.
+| player_id  | item         | quantity | player_rating |
+|------------|--------------|----------|---------------|
+| jdog21     | amulets      |      2   | Intermediate  |
+| jdog21     | rings        |      4   | Intermediate  |
+| gilal9     | copper coins |     18   | Beginner      |
+| trev73     | shilelds     |      3   | Advanced      |
+| trev73     | arrows       |      5   | Advanced      |
+| trev73     | copper coins |     30   | Advanced      |
+| trev73     | rings        |      7   | Advanced      |
 
-### Example 2NF
+Primary key is `player_id + item`
 
-|               Customer Table                        |
-|-----------------------------------------------------|
-| id | first name | last name | full name   | email   |
-|----|------------|-----------|-------------|---------|
-| 1  | John       | Smith     | John Smith  | jsmith  |
-| 2  | Alex       | Doe       | Alex Doe    | adoe    |
-| 3  | Maria      | Doe       | Maria Doe   | mdoe    |
+- if gila19 looses its coins we get a `deletion anomaly` since we loose all of its information.
+- if jdog21 is promoted to `advanced` we can get an `update anomaly` since only one of the records could be updated
+- if we want to add a new player we get an `insert anomaly` since it does not have any inventory
+
+**Definitions**
+
+- Each non-key attribute must depend on the entire primary key
 
 |               Transaction Table                                       |
 |-----------------------------------------------------------------------|

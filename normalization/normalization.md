@@ -70,16 +70,25 @@ Primary key is `player_id + item`
 
 - Each non-key attribute must depend on the entire primary key
 
-|               Transaction Table                                       |
-|-----------------------------------------------------------------------|
-| id | customer_id | transaction_date | transaction_amount | product    |
-|----|-------------|------------------|--------------------|------------|
-| 1  | 1           | 2022-01-01       | 100.00             | Apple      |
-| 2  | 1           | 2022-01-02       | 200.00             | Banana     |
-| 3  | 1           | 2022-01-02       | 200.00             | Orange     |
-| 4  | 2           | 2022-01-15       | 150.00             | Aple       |
-| 5  | 3           | 2022-02-02       | 783.00             | Banana     |
+| player_id  | item         | quantity | 
+|------------|--------------|----------|
+| jdog21     | amulets      |      2   | 
+| jdog21     | rings        |      4   | 
+| gilal9     | copper coins |     18   | 
+| trev73     | shilelds     |      3   | 
+| trev73     | arrows       |      5   | 
+| trev73     | copper coins |     30   | 
+| trev73     | rings        |      7   | 
 
+Primary key is `player_id + item`
+
+| player_id  | Player_rating |
+|------------|---------------|
+| jdog21     | Intermediate  |
+| jdog21     | Intermediate  |
+| gilal9     | Beginner      |
+
+Primary key is `player_id`
 
 ## 3NF
 

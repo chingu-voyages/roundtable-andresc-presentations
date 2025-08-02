@@ -71,27 +71,6 @@ Primary key is `player_id + item`
 - Every table should be in 1NF
 - Each non-key attribute must depend on the entire primary key
 
-### Candidate keys
-
-| Locker_id | Reservation_start_date | Reservation_end_date | Reservation_end_day |
-|-----------|------------------------|----------------------|---------------------|
-| 123       | 2025-06-14             | 2025-07-19           | Saturday            |
-| 356       | 2025-06-14             | 2025-06-19           | Thursday            |
-| 567       | 2025-07-08             | 2025-08-30           | Wednesday           |
-
-Possible keys are `Locker_id + Reservation_start_date` or `Locker_id + Reservation_end_date`
-
-Reservation_end_day depends only on part of a possible key so that makes this table not to comply with 2NF
-
-A more formal defintion:
-
-- We can not have a non prime attribute that depends on a part of a candidate key
-
-**Candidate key** is an attribute (or a combination of attributes) that is used to uniquely identify a row
-**Prime attributes** is an attribute that belongs at least to one candidate key
-**Non prime attributes** is an attribute that does not belong to any candidate key
-
-
 ### Solution
 
 | player_id  | item         | quantity | 
@@ -164,6 +143,27 @@ Primary key is `player_id`
 |     9       | Advanced      |
 
 Primary key is `skill_level`
+
+### Candidate keys
+
+| Locker_id | Reservation_start_date | Reservation_end_date | Reservation_end_day |
+|-----------|------------------------|----------------------|---------------------|
+| 123       | 2025-06-14             | 2025-07-19           | Saturday            |
+| 356       | 2025-06-14             | 2025-06-19           | Thursday            |
+| 567       | 2025-07-08             | 2025-08-30           | Wednesday           |
+
+Possible keys are `Locker_id + Reservation_start_date` or `Locker_id + Reservation_end_date`
+
+Reservation_end_day depends only on part of a possible key so that makes this table not to comply with 2NF
+
+A more formal defintion:
+
+- We can not have a non prime attribute that depends on a part of a candidate key
+
+**Candidate key** is an attribute (or a combination of attributes) that is used to uniquely identify a row
+**Prime attributes** is an attribute that belongs at least to one candidate key
+**Non prime attributes** is an attribute that does not belong to any candidate key
+
 
 ## BCNF
 

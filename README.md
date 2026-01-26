@@ -5,6 +5,8 @@ A repo containing code and examples for Andres Spotlight sessions
 ## Table of Contents
 
 - [SQL](./sql/presentation.md)
+- [Normalization](./normalization/normalization.md)
+- [Terminal](./terminal/present.md)
 
 ## Author
 

@@ -17,3 +17,11 @@ SELECT
   COUNT(*) AS row_count
 FROM publications
 GROUP BY tableoid;   
+
+-- Get the table size
+SELECT
+    schemaname || '.' || tablename AS table_name,
+    pg_size_pretty(pg_total_relation_size(schemaname || '.' || tablename)) AS size
+FROM pg_tables WHERE schemaname in ('public', 'part')
+ORDER BY pg_total_relation_size(schemaname || '.' || tablename) DESC;
+

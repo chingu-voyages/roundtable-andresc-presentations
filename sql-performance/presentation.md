@@ -14,6 +14,13 @@
      - Can cost in memory
      - On mutation queries (insert, update, delete)
 
+## Creating an index
+
+```sql
+CREATE INDEX index_name
+ON table_name (column_name1, column_name2, ...);
+```
+
 ## Types of Indexes
 
 - Clustered Indexes
@@ -27,6 +34,12 @@
 - In the case of `PostgreSQL` there are no clusterd indexes by default
      - Must be created manually
      - Must be maintained regularly
+
+## Creating a clustered index in PostgreSQL
+
+```sql
+CLUSTER table_name USING index_name;
+```
 
 ## Nonclustered Indexes
 

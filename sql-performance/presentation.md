@@ -1,6 +1,6 @@
-# Improve Database Queries
+## Improve Database Queries
 
-## Types of improvements
+Types of improvements
 
 - Indexes
 - Partitioning

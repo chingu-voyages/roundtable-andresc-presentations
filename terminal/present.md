@@ -7,16 +7,16 @@ On this roundtable we will be going on how to use the terminal to imporve your d
 What do I look for in a terminal, it should have transparency, be GPU accelerated, and manage images
 
 - [Alacritty](https://github.com/alacritty/alacritty) - Does not suppport images
-- [Ghostty](https://ghostty.org/) - This is my current favorite
+- [Ghostty](https://ghostty.org/)
 - [kitty](https://sw.kovidgoyal.net/kitty/)
-- [wezterm](https://github.com/wez/wezterm)
+- [wezterm](https://github.com/wez/wezterm) - This is the one I'm currently using
 
 ## Choosing a shell
 
 There are a few shells there to choose from
 
-- [zsh](https://www.zsh.org/) - This is the one I use
-- [bash](https://www.gnu.org/software/bash/)
+- [zsh](https://www.zsh.org/) 
+- [bash](https://www.gnu.org/software/bash/) - This is the one I use
 - [fish](https://fishshell.com/)
 - [nushell](https://www.nushell.sh/)
 
@@ -24,7 +24,7 @@ There are a few shells there to choose from
 
 If using zsh, you can configure it using tools as:
 
-- [starship](https://starship.rs/) - This is my favorite
+- [starship](https://starship.rs/) - This is my favorite works on bash too
 - [oh-my-zsh](https://ohmyz.sh/)
 
 ## Introducing dotfiles
@@ -156,6 +156,17 @@ neovim is a text editor that its confguration is written in lua, it is a good to
 nvim
 ```
 
+## jq
+
+JQ is a tool that help us work with JSON data.
+
+- [jq](https://jqland.org)
+
+```bash
+cat file.json | jq
+```
+
+
 ## the fuck
 
 the fuck is a tool that allows you to fix your command, it is a good tool to use when you have a lot of typos in your command
@@ -164,4 +175,4 @@ the fuck is a tool that allows you to fix your command, it is a good tool to use
 
 ```bash
 thefuck
-```d
+```

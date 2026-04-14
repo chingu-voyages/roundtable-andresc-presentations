@@ -36,3 +36,39 @@ To create a symbolic link, we use the `ln` command with the `-s` flag.
 ```bash
 ln -s /path/to/original /path/to/symlink
 ```
+
+# Why are we talking about file types
+
+The reason why we are going to talk about file types is because we will be using them to create symlinks to our dotfiles, 
+every configuration we want to save, we will create a file in a specific directory and then create a symbolic link to that file.
+
+The advantage on this approach is that we can add this specific directory tracked by `git` thus being able to store them in
+`Github` or `Gitlab`.
+
+# Creating the dotfiles directory
+
+First, we will create the directory where we will store our dotfiles.
+
+```bash
+mkdir -p ~/dotfiles/.config
+cd dotfiles
+git init
+git commit --allow-empty -m "Initial commit"
+```
+
+# Where to put the files
+
+With this structure all of the files in the root of the `dotfiles` directory will be linked to the user's home directory.
+Examples of this files are `.bashrc`, `.gitconfig`.
+
+Inside each directory we create inside that dotfiles will mirror any directory inside the home folder, so in our example,
+whatever we add inside the `.config` directory will be mirrored inside the `~/.config` directory.
+
+# Approach on creating the symlinks
+
+There are two main approches on creating the required symlinks:
+
+- Using the `ln` command
+- Using the `stow` command
+
+Personally I prefer using the `ls` command.

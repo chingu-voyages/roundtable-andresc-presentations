@@ -71,4 +71,4 @@ There are two main approches on creating the required symlinks:
 - Using the `ln` command
 - Using the `stow` command
 
-Personally I prefer using the `ls` command.
+Personally I prefer using the `ln` command.

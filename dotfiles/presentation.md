@@ -15,7 +15,8 @@ In the case of Windows, I do not know if there is something similar of what we w
 
 # Understanding Unix file types
 
-In Unix like systems, everything is a `file`, and there are different types of files:
+Let's go back to the beginning, when Ken Thompson, Dennis Ritchie and others created the Unix operating system. And they
+had the great idea that in Unix like systems, everything is a `file`, and there are different types of files:
 
 - **Regular files (-)**: files that contain data
 - **Directories (d)**: files that contain other files
